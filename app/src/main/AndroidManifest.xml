@@ -2,52 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="liwei.hackcode">
 
+    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- <uses-permission android:name="android.permission.CALL_PHONE" /> -->
     <application
-        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".web.OkHttpActivity">
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="dUW1o0vV0QgFXd1vFjBYdGtNGPSuQIcm" />
+
+        <activity android:name=".lbs.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SecondActivity">
-            <intent-filter>
-                <action android:name="liwei.hackcode.ACTION_START" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.ThirdActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-
-                <data android:scheme="http" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.NormalActivity" />
-        <!--<activity android:name=".activity.DialogActivity"
-            android:launchMode="singleTop"
-            android:theme="@android:style/Theme.Dialog"></activity>-->
-        <activity android:name=".activity.DialogActivity"
-            android:theme="@android:style/Theme.Dialog"></activity>
-
-        <receiver android:name=".broadcast.MyBroadCaseReceiver"
+        <service
+            android:name="com.baidu.location.f"
             android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="liwei.hackcode.broadcasttest.MY_BROADCAST"/>
-            </intent-filter>
-        </receiver>
+            android:process=":remote"/>
     </application>
 
-    <!--<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />-->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <!--<uses-permission android:name="android.permission.CALL_PHONE" />-->
 </manifest>
